@@ -24,6 +24,18 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func calculateTapped(sender: AnyObject) {
+        
+    }
+    
+    @IBAction func taxPercentageChanged(sender: AnyObject) {
+        
+    }
+    
+    @IBAction func viewTapped(sender: AnyObject) {
+        
+    }
 
 }
 
