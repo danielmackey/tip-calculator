@@ -9,6 +9,11 @@
 import UIKit
 
 class ViewController: UIViewController {
+  
+    @IBOutlet var totalTextField:   UITextField
+    @IBOutlet var taxPercentSlider: UISlider
+    @IBOutlet var taxPercentLabel:  UILabel
+    @IBOutlet var resultsTextView:  UITextView
                             
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +24,6 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 
 }
 
