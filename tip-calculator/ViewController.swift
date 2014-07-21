@@ -57,6 +57,10 @@ class ViewController: UIViewController {
     @IBAction func viewTapped(sender: AnyObject) {
         totalTextField.resignFirstResponder()
     }
+    
+    @IBAction func totalChanged(sender: AnyObject) {
+        tipCalculator.total = Double(totalTextField.text.bridgeToObjectiveC().doubleValue)
+    }
 
 }
 
