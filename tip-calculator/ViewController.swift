@@ -10,10 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
   
-    @IBOutlet var totalTextField:   UITextField
-    @IBOutlet var taxPercentSlider: UISlider
-    @IBOutlet var taxPercentLabel:  UILabel
-    @IBOutlet var resultsTextView:  UITextView
+    @IBOutlet weak var totalTextField: UITextField!
+    @IBOutlet weak var taxPercentSlider: UISlider!
+    @IBOutlet weak var taxPercentLabel: UILabel!
+    @IBOutlet weak var resultsTextView: UITextView!
     
     let tipCalculator = TipCalculatorModel(total: 33.25, taxPercent: 0.06)
                             
@@ -35,8 +35,13 @@ class ViewController: UIViewController {
         resultsTextView.text = ""
     }
     
-    @IBAction func calculateTapped(sender: AnyObject) {
-        tipCalculator.total = Double(totalTextField.text.bridgeToObjectiveC().doubleValue)
+    @IBAction func calculateTapped() {
+        guard
+          let text = totalTextField.text,
+          let doubleValue = Double(text)
+          else { return }
+        
+        tipCalculator.total = doubleValue
         
         let possibleTips = tipCalculator.returnPossibleTips()
         var results = ""
@@ -49,17 +54,22 @@ class ViewController: UIViewController {
         resultsTextView.text = results
     }
     
-    @IBAction func taxPercentageChanged(sender: AnyObject) {
+    @IBAction func taxPercentageChanged() {
         tipCalculator.taxPercent = Double(taxPercentSlider.value) / 100.0
         refreshUI()
     }
     
-    @IBAction func viewTapped(sender: AnyObject) {
+    @IBAction func viewTapped() {
         totalTextField.resignFirstResponder()
     }
     
-    @IBAction func totalChanged(sender: AnyObject) {
-        tipCalculator.total = Double(totalTextField.text.bridgeToObjectiveC().doubleValue)
+    @IBAction func totalChanged() {
+        guard
+          let text = totalTextField.text,
+          let doubleValue = Double(text)
+          else { return }
+        
+        tipCalculator.total = doubleValue
     }
 
 }
