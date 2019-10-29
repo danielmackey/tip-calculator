@@ -29,12 +29,11 @@ class TipCalculatorModel {
   
   func returnPossibleTips() -> [Int: Double] {
     let possibleTipsInferred = [0.15, 0.18, 0.20]
-    let possibleTipsExplicit:[Double] = [0.15, 0.18, 0.20]
     
     var retval = [Int: Double]()
     for possibleTip in possibleTipsInferred {
       let intPct = Int(possibleTip * 100)
-      retval[intPct] = calculateTipWithTipPercent(possibleTip)
+      retval[intPct] = calculateTipWithTipPercent(tipPercent: possibleTip)
     }
     return retval
   }
